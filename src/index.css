@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #070503;
+    color: #FAF7F2;
+  }
+
+  body {
+    @apply bg-obsidian-950 text-cream-100 font-sans font-light;
+    overflow-x: hidden;
+    background-color: #070503;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-gold-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070503;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #231C14;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C5A059;
+  }
+
+  /* Functional Native Date Picker Calendar Indicator */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.8) sepia(100%) saturate(300%) hue-rotate(5deg);
+    opacity: 0.9;
+    padding: 3px;
+    border-radius: 4px;
+    transition: transform 0.2s;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    transform: scale(1.15);
+  }
+}
+
+@layer components {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FAF6ED 0%, #DFC293 45%, #C5A059 80%, #8E6D30 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gold-divider {
+    @apply w-12 h-[1px] bg-gradient-to-r from-gold-500/60 to-transparent;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20;
+  }
+
+  .boutique-card {
+    @apply relative overflow-hidden rounded-3xl bg-obsidian-850/90 border border-white/10 shadow-luxury-dark transition-all duration-700 ease-luxury hover:border-gold-500/40 hover:shadow-luxury-hover;
+  }
+
+  .glass-plate {
+    @apply rounded-2xl bg-obsidian-850/85 backdrop-blur-xl border border-white/15 shadow-floating text-cream-100;
+  }
+
+  .gold-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase bg-gold-500/10 text-gold-300 border border-gold-500/25 backdrop-blur-md;
+  }
+
+  /* Custom horizontal scroll bar styling for package section */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .bg-radial-vignette {
+    background: radial-gradient(circle at center, transparent 30%, rgba(7, 5, 3, 0.85) 90%);
+  }
+}
